@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Steganography Project</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #0A0F2C;
+        }
+
+        .hero-section {
+            background: linear-gradient(to right, #4a69bd, #6a89cc);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .hero-section h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+
+        .steps-section {
+            margin-top: 40px;
+        }
+
+        .step-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .button-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .footer {
+            background-color: hsl(239, 75%, 63%);
+            text-align: center;
+            padding: 15px;
+            margin-top: 80px;
+            color: white;
+        }
+
+        .img-fluid {
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    {% include "navbar.html" %}
+
+    <div class="hero-section" data-aos="fade-down">
+        <h1>Welcome to Image Steganography</h1>
+        <p class="lead mt-3">Hide and reveal secret messages inside images with ease and security.</p>
+    </div>
+
+    <div class="container steps-section">
+        <h2 class="text-center mb-4" data-aos="fade-up">How it Works</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-card text-center">
+                    <i class="fas fa-image fa-2x mb-3 text-primary"></i>
+                    <h5>Select Image</h5>
+                    <p>Choose an image file you want to use for hiding or extracting secret messages.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-card text-center">
+                    <i class="fas fa-lock fa-2x mb-3 text-danger"></i>
+                    <a href="/encryption" style="text-decoration: none;"><h5>Encryption</h5></a>
+                    <p>Go to the Encryption page, upload your image, enter your message, and submit.</p>
+                    
+                </div>
+            </div>
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-card text-center">
+                    <i class="fas fa-unlock-alt fa-2x mb-3 text-success"></i>
+                    <a href="/decryption" style="text-decoration: none;"><h5>Decrypt</h5></a>
+                    <p>Upload the encrypted image on the Decryption page to reveal the hidden message.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" data-aos="zoom-in">
+        <div class="row">
+            <div class="col-md-6 image-container">
+                <img src="{% static 'images/encry.webp' %}" alt="Encryption Image" class="img-fluid" height="300" width="500">
+                <a href="encryption/" class="btn btn-primary button-link">Encrypt Now</a>
+            </div>
+            <div class="col-md-6 image-container">
+                <img src="{% static 'images/dec.jpg' %}" alt="Decryption Image" class="img-fluid" height="300" width="500">
+                <a href="decryption/" class="btn btn-primary button-link">Decrypt Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Image Steganography Project | Built for EWCE</p>
+    </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
